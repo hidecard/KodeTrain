@@ -35,7 +35,7 @@ const Home = () => {
       title: 'HTML Lists',
       description: 'Create ordered and unordered lists in HTML.',
       link: '/html/lists',
-
+      difficulty: 'Beginner',
       category: 'html'
     },
     {
@@ -95,59 +95,76 @@ const Home = () => {
       category: 'react'
     },
   ];
+
   return (
     <div>
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-          Welcome to Frontend Learning Lab
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Master HTML, CSS, Bootstrap, and JavaScript through interactive lessons, code examples, and quizzes.
-          All learning happens offline, right in your browser.
-        </p>
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-20 px-4 rounded-lg mb-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl font-bold mb-6">
+            Welcome to Frontend Learning Lab
+          </h1>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Master HTML, CSS, Bootstrap, and JavaScript through interactive lessons, code examples, and quizzes.
+            All learning happens offline, right in your browser.
+          </p>
+          <Link
+            to="/html/intro"
+            className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-full transition-colors inline-block"
+          >
+            Start Learning Now
+          </Link>
+        </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        {lessons.map((lesson, index) => (
-          <LessonCard key={index} {...lesson} />
-        ))}
+      {/* Lessons Section */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-8">
+          Explore Our Lessons
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {lessons.map((lesson, index) => (
+            <LessonCard key={index} {...lesson} />
+          ))}
+        </div>
       </div>
 
-      <div className="bg-blue-50 dark:bg-blue-900 p-8 rounded-lg text-center">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+      {/* Quiz Section */}
+      <div className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 p-10 rounded-lg text-center text-white">
+        <h2 className="text-3xl font-bold mb-6">
           Ready to Test Your Knowledge?
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
+        <p className="text-lg mb-8 max-w-2xl mx-auto">
           Take our interactive quizzes to reinforce your learning and track your progress.
         </p>
-        <div className="flex justify-center space-x-4">
+        <div className="flex flex-wrap justify-center gap-4">
           <Link
             to="/html/quiz"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition-colors"
+            className="bg-white text-blue-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-full transition-colors"
           >
             HTML Quiz
           </Link>
           <Link
             to="/css/quiz"
-            className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded transition-colors"
+            className="bg-white text-green-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-full transition-colors"
           >
             CSS Quiz
           </Link>
           <Link
             to="/bootstrap/quiz"
-            className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded transition-colors"
+            className="bg-white text-purple-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-full transition-colors"
           >
             Bootstrap Quiz
           </Link>
           <Link
             to="/js/quiz"
-            className="bg-yellow-600 hover:bg-yellow-700 text-white font-medium py-2 px-6 rounded transition-colors"
+            className="bg-white text-yellow-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-full transition-colors"
           >
             JavaScript Quiz
           </Link>
           <Link
             to="/react/quiz"
-            className="bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-2 px-6 rounded transition-colors"
+            className="bg-white text-cyan-600 hover:bg-gray-100 font-medium py-3 px-6 rounded-full transition-colors"
           >
             React Quiz
           </Link>

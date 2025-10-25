@@ -1596,5 +1596,813 @@ export const htmlLessons = [
 </body>
 </html>`,
     difficulty: 'Beginner'
+  },
+  {
+    id: 'audio-element',
+    title: 'HTML5 Audio Element',
+    content: `
+      <h1>HTML5 Audio Element</h1>
+      <p>The <code><audio></code> element is used to embed audio content in web pages. It supports multiple audio formats and provides controls for playback.</p>
+
+      <h2>Supported Formats</h2>
+      <ul>
+        <li><strong>MP3</strong> - Most widely supported</li>
+        <li><strong>OGG</strong> - Open format, good for Firefox</li>
+        <li><strong>WAV</strong> - Uncompressed, high quality</li>
+        <li><strong>AAC</strong> - Good compression</li>
+      </ul>
+
+      <h2>Attributes</h2>
+      <ul>
+        <li><code>src</code> - Audio file URL</li>
+        <li><code>controls</code> - Show playback controls</li>
+        <li><code>autoplay</code> - Auto-play audio</li>
+        <li><code>loop</code> - Loop playback</li>
+        <li><code>muted</code> - Start muted</li>
+        <li><code>preload</code> - Preload behavior</li>
+      </ul>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Audio</title>
+</head>
+<body>
+    <h1>Audio Player</h1>
+
+    <!-- Basic audio player -->
+    <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        <source src="audio.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Audio with multiple sources -->
+    <audio controls preload="metadata">
+        <source src="song.mp3" type="audio/mpeg">
+        <source src="song.ogg" type="audio/ogg">
+        <source src="song.wav" type="audio/wav">
+        Audio not supported.
+    </audio>
+
+    <!-- Background music (muted by default) -->
+    <audio autoplay muted loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'video-element',
+    title: 'HTML5 Video Element',
+    content: `
+      <h1>HTML5 Video Element</h1>
+      <p>The <code><video></code> element embeds video content in web pages. It supports multiple video formats and provides built-in playback controls.</p>
+
+      <h2>Supported Formats</h2>
+      <ul>
+        <li><strong>MP4</strong> - Most widely supported (H.264 + AAC)</li>
+        <li><strong>WebM</strong> - Open format (VP8/VP9 + Vorbis/Opus)</li>
+        <li><strong>OGG</strong> - Open format (Theora + Vorbis)</li>
+      </ul>
+
+      <h2>Key Attributes</h2>
+      <ul>
+        <li><code>src</code> - Video file URL</li>
+        <li><code>controls</code> - Show playback controls</li>
+        <li><code>autoplay</code> - Auto-play video</li>
+        <li><code>loop</code> - Loop playback</li>
+        <li><code>muted</code> - Start muted</li>
+        <li><code>poster</code> - Poster image URL</li>
+        <li><code>width/height</code> - Video dimensions</li>
+      </ul>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Video</title>
+</head>
+<body>
+    <h1>Video Player</h1>
+
+    <!-- Basic video player -->
+    <video controls width="640" height="360">
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        Your browser does not support the video element.
+    </video>
+
+    <!-- Video with poster image -->
+    <video controls poster="thumbnail.jpg" width="640" height="360">
+        <source src="movie.mp4" type="video/mp4">
+        <source src="movie.webm" type="video/webm">
+    </video>
+
+    <!-- Autoplay video (muted for browser policies) -->
+    <video autoplay muted loop width="320" height="240">
+        <source src="animation.mp4" type="video/mp4">
+    </video>
+</body>
+</html>`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'canvas-element',
+    title: 'HTML5 Canvas Element',
+    content: `
+      <h1>HTML5 Canvas Element</h1>
+      <p>The <code><canvas></code> element provides a drawing surface for creating graphics, animations, and interactive visualizations using JavaScript.</p>
+
+      <h2>Canvas Basics</h2>
+      <ul>
+        <li>Canvas creates a fixed-size drawing area</li>
+        <li>Drawing is done with JavaScript using the Canvas API</li>
+        <li>Canvas is resolution-dependent</li>
+        <li>Content is not accessible to screen readers by default</li>
+      </ul>
+
+      <h2>Common Uses</h2>
+      <ul>
+        <li>Charts and graphs</li>
+        <li>Games and animations</li>
+        <li>Photo manipulation</li>
+        <li>Real-time data visualization</li>
+        <li>Signature capture</li>
+      </ul>
+
+      <h2>Canvas API</h2>
+      <p>The Canvas API provides methods for drawing shapes, text, images, and applying transformations.</p>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas</title>
+</head>
+<body>
+    <h1>Canvas Drawing</h1>
+
+    <canvas id="myCanvas" width="400" height="300" style="border: 1px solid #ccc;">
+        Your browser does not support the canvas element.
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Draw a rectangle
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(50, 50, 100, 80);
+
+        // Draw a circle
+        ctx.beginPath();
+        ctx.arc(250, 100, 50, 0, 2 * Math.PI);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+
+        // Draw text
+        ctx.font = '20px Arial';
+        ctx.fillStyle = 'black';
+        ctx.fillText('Hello Canvas!', 150, 200);
+    </script>
+</body>
+</html>`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'svg-html',
+    title: 'SVG in HTML',
+    content: `
+      <h1>SVG in HTML</h1>
+      <p>SVG (Scalable Vector Graphics) is an XML-based vector image format that can be embedded directly in HTML documents.</p>
+
+      <h2>SVG Advantages</h2>
+      <ul>
+        <li>Scalable without loss of quality</li>
+        <li>Small file sizes for simple graphics</li>
+        <li>Searchable and accessible</li>
+        <li>Can be styled with CSS</li>
+        <li>Interactive with JavaScript</li>
+      </ul>
+
+      <h2>SVG Elements</h2>
+      <ul>
+        <li><code><svg></code> - Root SVG element</li>
+        <li><code><circle></code> - Circle shapes</li>
+        <li><code><rect></code> - Rectangle shapes</li>
+        <li><code><line></code> - Straight lines</li>
+        <li><code><path></code> - Complex shapes</li>
+        <li><code><text></code> - Text content</li>
+      </ul>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG in HTML</title>
+</head>
+<body>
+    <h1>SVG Examples</h1>
+
+    <!-- Inline SVG -->
+    <svg width="200" height="200" viewBox="0 0 200 200">
+        <!-- Circle -->
+        <circle cx="100" cy="100" r="80" fill="blue" stroke="black" stroke-width="2"/>
+
+        <!-- Rectangle -->
+        <rect x="50" y="50" width="100" height="60" fill="red" opacity="0.5"/>
+
+        <!-- Text -->
+        <text x="100" y="120" text-anchor="middle" font-family="Arial" font-size="16" fill="white">
+            SVG Text
+        </text>
+    </svg>
+
+    <!-- SVG with CSS styling -->
+    <svg width="300" height="100" class="styled-svg">
+        <defs>
+            <style>
+                .styled-svg { border: 1px solid #ccc; }
+                .shape { transition: fill 0.3s; }
+                .shape:hover { fill: orange; }
+            </style>
+        </defs>
+        <circle cx="50" cy="50" r="30" fill="green" class="shape"/>
+        <rect x="120" y="20" width="60" height="60" fill="purple" class="shape"/>
+        <polygon points="220,20 260,80 180,80" fill="yellow" class="shape"/>
+    </svg>
+</body>
+</html>`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'geolocation-api',
+    title: 'Geolocation API',
+    content: `
+      <h1>Geolocation API</h1>
+      <p>The Geolocation API allows web applications to access the user's geographical location with their permission.</p>
+
+      <h2>How It Works</h2>
+      <p>The API uses various location sources including GPS, Wi-Fi, and IP address to determine the user's position.</p>
+
+      <h2>Privacy Considerations</h2>
+      <ul>
+        <li>Requires user permission</li>
+        <li>Only works on secure (HTTPS) connections</li>
+        <li>Location data should be handled securely</li>
+        <li>Users can revoke permission anytime</li>
+      </ul>
+
+      <h2>Methods</h2>
+      <ul>
+        <li><code>getCurrentPosition()</code> - Get current location</li>
+        <li><code>watchPosition()</code> - Monitor location changes</li>
+        <li><code>clearWatch()</code> - Stop monitoring</li>
+      </ul>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation API</title>
+</head>
+<body>
+    <h1>Your Location</h1>
+
+    <button id="getLocation">Get My Location</button>
+
+    <div id="locationInfo"></div>
+
+    <script>
+        const getLocationBtn = document.getElementById('getLocation');
+        const locationInfo = document.getElementById('locationInfo');
+
+        getLocationBtn.addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const { latitude, longitude, accuracy } = position.coords;
+                        locationInfo.innerHTML = \`
+                            <p><strong>Latitude:</strong> \${latitude}</p>
+                            <p><strong>Longitude:</strong> \${longitude}</p>
+                            <p><strong>Accuracy:</strong> \${accuracy} meters</p>
+                            <p><a href="https://www.google.com/maps?q=\${latitude},\${longitude}" target="_blank">View on Google Maps</a></p>
+                        \`;
+                    },
+                    (error) => {
+                        locationInfo.innerHTML = \`<p>Error: \${error.message}</p>\`;
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 300000
+                    }
+                );
+            } else {
+                locationInfo.innerHTML = '<p>Geolocation is not supported by this browser.</p>';
+            }
+        });
+    </script>
+</body>
+</html>`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'local-storage',
+    title: 'Local Storage',
+    content: `
+      <h1>Local Storage</h1>
+      <p>Local Storage is a web storage API that allows you to store key-value pairs in the browser with no expiration time.</p>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Stores data with no expiration date</li>
+        <li>Data persists across browser sessions</li>
+        <li>Storage limit is about 5-10MB per domain</li>
+        <li>Data is stored as strings</li>
+        <li>Accessible only by the same origin</li>
+      </ul>
+
+      <h2>Methods</h2>
+      <ul>
+        <li><code>localStorage.setItem(key, value)</code> - Store data</li>
+        <li><code>localStorage.getItem(key)</code> - Retrieve data</li>
+        <li><code>localStorage.removeItem(key)</code> - Remove specific item</li>
+        <li><code>localStorage.clear()</code> - Clear all data</li>
+        <li><code>localStorage.key(index)</code> - Get key by index</li>
+      </ul>
+
+      <h2>Use Cases</h2>
+      <ul>
+        <li>User preferences</li>
+        <li>Cached data</li>
+        <li>Form data persistence</li>
+        <li>Application state</li>
+      </ul>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Storage Demo</title>
+</head>
+<body>
+    <h1>Local Storage Example</h1>
+
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <button id="save">Save</button>
+    </div>
+
+    <div>
+        <button id="load">Load Saved Name</button>
+        <span id="displayName"></span>
+    </div>
+
+    <div>
+        <button id="clear">Clear All Data</button>
+    </div>
+
+    <script>
+        const nameInput = document.getElementById('name');
+        const saveBtn = document.getElementById('save');
+        const loadBtn = document.getElementById('load');
+        const displayName = document.getElementById('displayName');
+        const clearBtn = document.getElementById('clear');
+
+        // Save data
+        saveBtn.addEventListener('click', () => {
+            const name = nameInput.value;
+            if (name) {
+                localStorage.setItem('userName', name);
+                alert('Name saved!');
+            }
+        });
+
+        // Load data
+        loadBtn.addEventListener('click', () => {
+            const savedName = localStorage.getItem('userName');
+            if (savedName) {
+                displayName.textContent = savedName;
+            } else {
+                displayName.textContent = 'No name saved';
+            }
+        });
+
+        // Clear data
+        clearBtn.addEventListener('click', () => {
+            localStorage.clear();
+            displayName.textContent = '';
+            alert('All data cleared!');
+        });
+
+        // Load saved name on page load
+        window.addEventListener('load', () => {
+            const savedName = localStorage.getItem('userName');
+            if (savedName) {
+                nameInput.value = savedName;
+                displayName.textContent = savedName;
+            }
+        });
+    </script>
+</body>
+</html>`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'session-storage',
+    title: 'Session Storage',
+    content: `
+      <h1>Session Storage</h1>
+      <p>Session Storage is similar to Local Storage but data is cleared when the page session ends (when the tab is closed).</p>
+
+      <h2>Key Differences from Local Storage</h2>
+      <ul>
+        <li>Data persists only for the current session</li>
+        <li>Data is cleared when tab/window is closed</li>
+        <li>Data is not shared between tabs/windows</li>
+        <li>Same storage limit (5-10MB)</li>
+        <li>Same API methods</li>
+      </ul>
+
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Temporary form data</li>
+        <li>Session-specific preferences</li>
+        <li>Shopping cart data (temporary)</li>
+        <li>Wizard/multi-step form progress</li>
+      </ul>
+
+      <h2>Storage Event</h2>
+      <p>The <code>storage</code> event fires when data changes in sessionStorage (or localStorage) in other tabs/windows.</p>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Storage Demo</title>
+</head>
+<body>
+    <h1>Session Storage Example</h1>
+
+    <div>
+        <label for="tempData">Temporary Data:</label>
+        <input type="text" id="tempData" placeholder="Enter temporary data">
+        <button id="saveSession">Save to Session</button>
+    </div>
+
+    <div>
+        <button id="loadSession">Load Session Data</button>
+        <span id="sessionData"></span>
+    </div>
+
+    <div>
+        <button id="clearSession">Clear Session Data</button>
+    </div>
+
+    <p><em>Note: Data will be lost when you close this tab</em></p>
+
+    <script>
+        const tempInput = document.getElementById('tempData');
+        const saveBtn = document.getElementById('saveSession');
+        const loadBtn = document.getElementById('loadSession');
+        const displayData = document.getElementById('sessionData');
+        const clearBtn = document.getElementById('clearSession');
+
+        // Save to session storage
+        saveBtn.addEventListener('click', () => {
+            const data = tempInput.value;
+            if (data) {
+                sessionStorage.setItem('tempData', data);
+                alert('Data saved to session!');
+            }
+        });
+
+        // Load from session storage
+        loadBtn.addEventListener('click', () => {
+            const data = sessionStorage.getItem('tempData');
+            displayData.textContent = data || 'No data in session';
+        });
+
+        // Clear session storage
+        clearBtn.addEventListener('click', () => {
+            sessionStorage.clear();
+            displayData.textContent = '';
+            tempInput.value = '';
+            alert('Session data cleared!');
+        });
+
+        // Listen for storage events from other tabs
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'tempData' && e.storageArea === sessionStorage) {
+                console.log('Session data changed in another tab');
+                loadBtn.click(); // Refresh display
+            }
+        });
+    </script>
+</body>
+</html>`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'web-workers',
+    title: 'Web Workers',
+    content: `
+      <h1>Web Workers</h1>
+      <p>Web Workers allow you to run JavaScript in background threads, enabling concurrent execution without blocking the main UI thread.</p>
+
+      <h2>Types of Workers</h2>
+      <ul>
+        <li><strong>Dedicated Workers</strong> - Used by a single script</li>
+        <li><strong>Shared Workers</strong> - Can be accessed by multiple scripts</li>
+        <li><strong>Service Workers</strong> - Special workers for background tasks</li>
+      </ul>
+
+      <h2>Worker Limitations</h2>
+      <ul>
+        <li>No access to DOM</li>
+        <li>No access to window object</li>
+        <li>No access to document object</li>
+        <li>Limited access to some APIs</li>
+        <li>Communication via messages only</li>
+      </ul>
+
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Heavy computations</li>
+        <li>Data processing</li>
+        <li>Image manipulation</li>
+        <li>Background file processing</li>
+        <li>Real-time data analysis</li>
+      </ul>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Workers Demo</title>
+</head>
+<body>
+    <h1>Web Workers Example</h1>
+
+    <button id="startWorker">Start Heavy Calculation</button>
+    <button id="stopWorker">Stop Worker</button>
+
+    <div id="result"></div>
+    <div id="status">Ready</div>
+
+    <script>
+        const startBtn = document.getElementById('startWorker');
+        const stopBtn = document.getElementById('stopWorker');
+        const resultDiv = document.getElementById('result');
+        const statusDiv = document.getElementById('status');
+
+        let worker;
+
+        startBtn.addEventListener('click', () => {
+            if (typeof(Worker) !== "undefined") {
+                // Create a new worker
+                worker = new Worker('worker.js');
+
+                statusDiv.textContent = 'Worker started...';
+
+                // Listen for messages from worker
+                worker.onmessage = function(e) {
+                    resultDiv.textContent = 'Result: ' + e.data;
+                    statusDiv.textContent = 'Calculation complete!';
+                };
+
+                // Send message to worker
+                worker.postMessage('start');
+            } else {
+                statusDiv.textContent = 'Web Workers not supported';
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            if (worker) {
+                worker.terminate();
+                statusDiv.textContent = 'Worker stopped';
+                resultDiv.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>
+
+// worker.js (separate file)
+self.onmessage = function(e) {
+    if (e.data === 'start') {
+        // Simulate heavy calculation
+        let result = 0;
+        for (let i = 0; i < 100000000; i++) {
+            result += Math.random();
+        }
+
+        // Send result back to main thread
+        self.postMessage(result);
+    }
+};`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'service-workers',
+    title: 'Service Workers',
+    content: `
+      <h1>Service Workers</h1>
+      <p>Service Workers are special Web Workers that act as proxy servers between web applications and the network, enabling offline functionality and background sync.</p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li>Background processing</li>
+        <li>Push notifications</li>
+        <li>Background sync</li>
+        <li>Caching strategies</li>
+        <li>Offline functionality</li>
+      </ul>
+
+      <h2>Lifecycle</h2>
+      <ol>
+        <li><strong>Registration</strong> - Register the service worker</li>
+        <li><strong>Installation</strong> - Install event fires</li>
+        <li><strong>Activation</strong> - Activate event fires</li>
+        <li><strong>Running</strong> - Service worker is active</li>
+      </ol>
+
+      <h2>Caching Strategies</h2>
+      <ul>
+        <li><strong>Cache First</strong> - Check cache first, then network</li>
+        <li><strong>Network First</strong> - Check network first, then cache</li>
+        <li><strong>Stale While Revalidate</strong> - Return cached, update in background</li>
+        <li><strong>Cache Only</strong> - Only use cache</li>
+        <li><strong>Network Only</strong> - Only use network</li>
+      </ul>
+    `,
+    example: `// sw.js - Service Worker file
+const CACHE_NAME = 'my-app-v1';
+const urlsToCache = [
+  '/',
+  '/styles.css',
+  '/app.js',
+  '/offline.html'
+];
+
+// Install event
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+// Fetch event
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => {
+        // Return cached version or fetch from network
+        return response || fetch(event.request);
+      })
+  );
+});
+
+// Activate event
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
+// main.js - Register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then((registration) => {
+        console.log('Service Worker registered:', registration);
+      })
+      .catch((error) => {
+        console.log('Service Worker registration failed:', error);
+      });
+  });
+}`,
+    difficulty: 'Beginner'
+  },
+  {
+    id: 'websockets',
+    title: 'WebSockets',
+    content: `
+      <h1>WebSockets</h1>
+      <p>WebSockets provide full-duplex communication channels over a single TCP connection, enabling real-time bidirectional communication between client and server.</p>
+
+      <h2>WebSocket Advantages</h2>
+      <ul>
+        <li>Real-time communication</li>
+        <li>Bidirectional data flow</li>
+        <li>Lower overhead than HTTP polling</li>
+        <li>Persistent connection</li>
+        <li>Cross-domain support</li>
+      </ul>
+
+      <h2>WebSocket Protocol</h2>
+      <p>WebSocket starts with an HTTP handshake that upgrades to the WebSocket protocol (ws:// or wss:// for secure connections).</p>
+
+      <h2>Use Cases</h2>
+      <ul>
+        <li>Chat applications</li>
+        <li>Real-time gaming</li>
+        <li>Live data feeds</li>
+        <li>Collaborative editing</li>
+        <li>Live notifications</li>
+      </ul>
+    `,
+    example: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Chat</title>
+</head>
+<body>
+    <h1>WebSocket Chat</h1>
+
+    <div id="messages"></div>
+
+    <input type="text" id="messageInput" placeholder="Type a message...">
+    <button id="sendBtn">Send</button>
+
+    <div id="status">Connecting...</div>
+
+    <script>
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const statusDiv = document.getElementById('status');
+
+        // Create WebSocket connection
+        const ws = new WebSocket('ws://localhost:8080');
+
+        // Connection opened
+        ws.addEventListener('open', (event) => {
+            statusDiv.textContent = 'Connected';
+            addMessage('Connected to chat server');
+        });
+
+        // Listen for messages
+        ws.addEventListener('message', (event) => {
+            addMessage('Received: ' + event.data);
+        });
+
+        // Connection closed
+        ws.addEventListener('close', (event) => {
+            statusDiv.textContent = 'Disconnected';
+            addMessage('Disconnected from server');
+        });
+
+        // Connection error
+        ws.addEventListener('error', (error) => {
+            statusDiv.textContent = 'Error';
+            addMessage('Connection error: ' + error);
+        });
+
+        // Send message
+        sendBtn.addEventListener('click', () => {
+            const message = messageInput.value;
+            if (message && ws.readyState === WebSocket.OPEN) {
+                ws.send(message);
+                addMessage('Sent: ' + message);
+                messageInput.value = '';
+            }
+        });
+
+        // Send on Enter key
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+
+        function addMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = new Date().toLocaleTimeString() + ' - ' + message;
+            messagesDiv.appendChild(messageElement);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>`,
+    difficulty: 'Beginner'
   }
 ];
